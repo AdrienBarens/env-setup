@@ -12,11 +12,11 @@ check_email () {
 setup_global_gitignore () {
     echo "\n4. Load global .gitignore"
 
-    if [ ! -f ~/.gitignore_global ]; then
-        touch ~/.gitignore_global
+    if [ ! -f ~/.global_gitignore ]; then
+        touch ~/.global_gitignore
     fi
 
-    cat ../config/default_gitignore.txt > ~/.gitignore_global
+    cat ../config/global_gitignore > ~/.global_gitignore
 }
 
 display_summary () {
@@ -47,7 +47,7 @@ if [ "$GIT_VERSION" != "command not found" ]; then
     git config --global core.editor "$editor"
 
     setup_global_gitignore
-    git config --global core.excludesfile ~/.gitignore_global
+    git config --global core.excludesfile ~/.global_gitignore
 
     display_summary
 else
