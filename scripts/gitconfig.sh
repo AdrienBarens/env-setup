@@ -10,7 +10,7 @@ check_email () {
 }
 
 setup_global_gitignore () {
-    echo "4. Load global .gitignore"
+    echo "\n4. Load global .gitignore"
 
     if [ ! -f ~/.gitignore_global ]; then
         touch ~/.gitignore_global
@@ -37,12 +37,12 @@ if [ "$GIT_VERSION" != "command not found" ]; then
     read -p "Enter your name: " name
     git config --global user.name "$name"
 
-    echo "2. Set user email"
+    echo "\n2. Set user email"
     read -p "Enter your email: " email
     check_email
     git config --global user.email "$email"
 
-    echo "3. Set user editor"
+    echo "\n3. Set user editor"
     read -p "Enter your editor: " editor
     git config --global core.editor "$editor"
 
