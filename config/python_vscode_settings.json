@@ -1,0 +1,19 @@
+{
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "notebook.output.textLineLimit": 1000,
+    "jupyter.askForKernelRestart": false,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length 80"
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    }
+}

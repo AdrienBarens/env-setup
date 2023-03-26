@@ -1,0 +1,31 @@
+{
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.suggestSelection": "first",
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "editor.fontSize": 16,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "'Fira Code'",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/.git": false
+    },
+    "terminal.integrated.fontSize": 16,
+    "editor.accessibilityPageSize": 12,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "workbench.tree.indent": 4,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true
+    },
+    "editor.detectIndentation": false,
+    "explorer.confirmDragAndDrop": false
+}
