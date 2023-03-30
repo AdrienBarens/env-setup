@@ -1,0 +1,79 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install core packages via brew casks
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+      ignore_errors: yes
+      with_items:
+        - docker
+        - firefox
+        - iterm2
+        - visual-studio-code
+
+    - name: "Install homebrew packages"
+      community.general.homebrew:
+        name: [
+          'autoconf',
+          'btop',
+          'ca-certificates',
+          'coreutils',
+          'gcc',
+          'gdbm',
+          'gettext',
+          'gmp',
+          'isl',
+          'libmpc',
+          'lz4',
+          'm4',
+          'mas',
+          'mpdecimal',
+          'mpfr',
+          'openssl@1.1',
+          'openssl@3',
+          'pkg-config',
+          'pyenv',
+          'pyenv-virtualenv',
+          'readline',
+          'sqlite',
+          'starship',
+          'xz',
+          'zlib',
+          'zstd',
+        ]
+        state: present
+        update_homebrew: yes
+
+    - name: "Install from Mac app store"
+      shell: mas install {{ item }}
+      with_items:
+        - 1595464182 # MonitorControl
+
+    - name: Install Oh My ZSH
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      args:
+        creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
+
+    - name: "Create a default ZSH configuration"
+      template:
+        src: config/.zshrc
+        dest: /Users/{{ lookup('env', 'USER') }}/.zshrc
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+    - name: Create a default VSCode configuration
+      template:
+        src: config/global_vscode_settings.json
+        dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+    - name: Install VSCode extensions
+      shell: code --install-extension {{ item }}
+      with_items:
+        - adpyke.codesnap
+        - akamud.vscode-theme-onedark
+        - eamodio.gitlens
+        - GitHub.copilot
+        - PKief.material-icon-theme
+        - shardulm94.trailing-spaces
