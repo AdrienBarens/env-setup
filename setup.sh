@@ -20,4 +20,9 @@ echo ""
 # Setup ssh
 ./scripts/ssh.sh
 
-echo "=============== Setup completed ==============="
+echo "\n--- Clean setup ---"
+
+echo "Remove python version installed via brew..."
+brew uninstall python@3.10
+
+echo "\n=============== Setup completed ==============="
